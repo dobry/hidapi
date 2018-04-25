@@ -74,6 +74,10 @@ extern "C" {
 			    only if the device contains more than one interface. */
 			int interface_number;
 
+                        int input_report_length;
+                        int output_report_length;
+                        int feature_report_length;
+
 			/** Pointer to the next device */
 			struct hid_device_info *next;
 		};

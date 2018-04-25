@@ -485,6 +485,10 @@ struct hid_device_info  HID_API_EXPORT *hid_enumerate(unsigned short vendor_id, 
 
             /* Interface Number (Unsupported on Mac)*/
             cur_dev->interface_number = -1;
+
+            cur_dev->input_report_length = get_int_property(dev, CFSTR(kIOHIDMaxInputReportSizeKey));
+            cur_dev->output_report_length = get_int_property(dev, CFSTR(kIOHIDMaxOutputReportSizeKey));
+            cur_dev->feature_report_length = get_int_property(dev, CFSTR(kIOHIDMaxFeatureReportSizeKey));
         }
     }
 
