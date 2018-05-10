@@ -481,9 +481,9 @@ struct hid_device_info HID_API_EXPORT * HID_API_CALL hid_enumerate(unsigned shor
                 }
             }
 
-            cur_dev->input_report_length =  caps.InputReportByteLength-1;
-            cur_dev->output_report_length = caps.OutputReportByteLength-1;
-            cur_dev->feature_report_length = caps.FeatureReportByteLength-1;
+            cur_dev->input_report_length =  caps.InputReportByteLength;
+            cur_dev->output_report_length = caps.OutputReportByteLength;
+            cur_dev->feature_report_length = caps.FeatureReportByteLength;
         }
 
 cont_close:
