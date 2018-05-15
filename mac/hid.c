@@ -958,7 +958,7 @@ int HID_API_EXPORT hid_send_feature_report(hid_device *dev, const unsigned char 
 
 int HID_API_EXPORT hid_get_feature_report(hid_device *dev, unsigned char *data, size_t length)
 {
-    CFIndex len = length - 1;
+    CFIndex len = length;
     IOReturn res;
 
     /* Return if the device has been unplugged. */
@@ -968,9 +968,9 @@ int HID_API_EXPORT hid_get_feature_report(hid_device *dev, unsigned char *data, 
     res = IOHIDDeviceGetReport(dev->device_handle,
                                kIOHIDReportTypeFeature,
                                data[0], /* Report ID */
-            data + 1, &len);
+            data, &len);
     if (res == kIOReturnSuccess)
-        return len + 1;
+        return len;
     else
         return -1;
 }
